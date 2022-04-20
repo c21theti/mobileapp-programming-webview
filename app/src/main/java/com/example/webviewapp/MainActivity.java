@@ -21,16 +21,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showInternalWebPage(){
-        myWebView.loadUrl("about.html");
+        myWebView.loadUrl("file:///android_asset/about.html");
     }
 
-    WebView myWebView;
+   private WebView myWebView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
         myWebView = findViewById(R.id.my_webview);
         myWebView.setWebViewClient(new WebViewClient()); // Do not open in Chrome!
         myWebView.getSettings().setJavaScriptEnabled(true);
